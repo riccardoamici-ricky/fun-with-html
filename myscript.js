@@ -11,7 +11,10 @@ let lastX = 0;
 let lastY = 0;
 
 function draw(e) {
-	console.log(e);
+	if(!isDrawing) return; //it will stop the function from running when they are not mouse down
 }
 
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', () => isDrawing = true);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
